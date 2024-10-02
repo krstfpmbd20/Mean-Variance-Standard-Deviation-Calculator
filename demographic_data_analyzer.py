@@ -26,13 +26,22 @@ df = pd.DataFrame(data)
 race_count = df['race'].value_counts()
 print("Race count:\n", race_count)
 
+# Interpretation: 
+# The dataset contains 3 individuals identified as White and 2 as Black.
+
 # 2. What is the average age of men?
 average_age_men = df[df['sex'] == 'Male']['age'].mean()
 print("Average age of men:", round(average_age_men, 1))
 
+# Interpretation:
+# The average age of men in this dataset is 45.0 years.
+
 # 3. Percentage of people with Bachelor's degree
 percentage_bachelors = (df[df['education'] == 'Bachelors'].shape[0] / df.shape[0]) * 100
 print("Percentage with Bachelor's degree:", round(percentage_bachelors, 1))
+
+# Interpretation:
+# 60.0% of the individuals in this dataset hold a Bachelor's degree.
 
 # 4. Percentage of people with advanced education (Bachelors, Masters, Doctorate) making more than 50K
 advanced_education = ['Bachelors', 'Masters', 'Doctorate']
@@ -40,19 +49,31 @@ higher_education = df[df['education'].isin(advanced_education)]
 higher_education_rich = (higher_education[higher_education['salary'] == '>50K'].shape[0] / higher_education.shape[0]) * 100
 print("Percentage with advanced education and earning >50K:", round(higher_education_rich, 1))
 
+# Interpretation:
+# 0.0% of people with advanced education in this dataset earn more than 50K. This is due to the fact that no one in the dataset has a salary above 50K.
+
 # 5. Percentage of people without advanced education making more than 50K
 lower_education = df[~df['education'].isin(advanced_education)]
 lower_education_rich = (lower_education[lower_education['salary'] == '>50K'].shape[0] / lower_education.shape[0]) * 100
 print("Percentage without advanced education and earning >50K:", round(lower_education_rich, 1))
 
+# Interpretation:
+# Similar to advanced education, 0.0% of people without advanced education earn more than 50K.
+
 # 6. Minimum number of hours a person works per week
 min_work_hours = df['hours-per-week'].min()
 print("Minimum work hours per week:", min_work_hours)
+
+# Interpretation:
+# The minimum number of hours worked per week in the dataset is 13 hours.
 
 # 7. Percentage of people who work the minimum hours and earn more than 50K
 num_min_workers = df[df['hours-per-week'] == min_work_hours]
 rich_percentage = (num_min_workers[num_min_workers['salary'] == '>50K'].shape[0] / num_min_workers.shape[0]) * 100 if num_min_workers.shape[0] > 0 else 0
 print("Percentage of people who work minimum hours and earn >50K:", round(rich_percentage, 1))
+
+# Interpretation:
+# 0.0% of people who work the minimum number of hours (13 hours) earn more than 50K, as no one in the dataset earns more than 50K.
 
 # 8. Country with the highest percentage of people that earn >50K
 country_salary_df = df[df['salary'] == '>50K'].groupby('native-country').size() / df.groupby('native-country').size()
@@ -67,6 +88,12 @@ else:
 print("Country with highest percentage earning >50K:", highest_earning_country)
 print("Percentage of people in that country earning >50K:", round(highest_earning_country_percentage, 1))
 
+# Interpretation:
+# Since no one in the dataset earns more than 50K, there is no country with a high percentage of individuals earning more than 50K.
+
 # 9. Most popular occupation for those who earn >50K in India
 top_IN_occupation = df[(df['native-country'] == 'India') & (df['salary'] == '>50K')]['occupation'].value_counts().idxmax() if not df[(df['native-country'] == 'India') & (df['salary'] == '>50K')].empty else None
 print("Most popular occupation in India for those earning >50K:", top_IN_occupation)
+
+# Interpretation:
+# There are no individuals in the dataset from India who earn more than 50K, so no occupation can be identified.

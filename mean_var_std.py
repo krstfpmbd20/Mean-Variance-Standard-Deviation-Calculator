@@ -21,4 +21,32 @@ def calculate(list):
     return calculations
 
 result = calculate([0, 1, 2, 3, 4, 5, 6, 7, 8])
+
+# Interpretation of the results:
+# 
+# The array is reshaped into:
+# [[0, 1, 2],
+#  [3, 4, 5],
+#  [6, 7, 8]]
+#
+# For each calculation:
+# 1. Axis 0 refers to columns, so results in the first list correspond to column-wise operations.
+# 2. Axis 1 refers to rows, so results in the second list correspond to row-wise operations.
+# 3. The third result is for the entire flattened array.
+#
+# Example for the 'mean':
+# 'mean': [[3.0, 4.0, 5.0],   --> mean of each column: [(0+3+6)/3, (1+4+7)/3, (2+5+8)/3]
+#          [1.0, 4.0, 7.0],   --> mean of each row: [(0+1+2)/3, (3+4+5)/3, (6+7+8)/3]
+#          4.0]               --> mean of all elements in the flattened array
+#
+# Similarly, for other statistics:
+# 'variance': [[6.0, 6.0, 6.0],  --> variance of each column
+#              [0.666..., 0.666..., 0.666...], --> variance of each row
+#              6.666...] --> variance of all elements in the flattened array
+#
+# 'standard deviation': [std of each column, std of each row, std of all elements]
+# 'max': [max of each column, max of each row, max of all elements]
+# 'min': [min of each column, min of each row, min of all elements]
+# 'sum': [sum of each column, sum of each row, sum of all elements]
+
 print(result)
