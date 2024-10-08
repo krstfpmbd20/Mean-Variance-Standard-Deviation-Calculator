@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Import data
-df = pd.read_csv("medical_examination.csv")
+df = pd.read_csv("Medical Data Visualizer/medical_examination.csv")
 
 # Add 'overweight' column
 BMI = df['weight']/((df['height']/100)**2)
