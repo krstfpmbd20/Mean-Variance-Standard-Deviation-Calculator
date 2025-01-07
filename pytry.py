@@ -129,30 +129,138 @@
 # else:
 #     print(f'You lost! The correct number was {secret_number}.')
 
-command = ""
-started = False
-while True:
-    command = input('> ').lower()
-    if command == "start":
-        if started:
-            print('Car is already started.')
-        else:
-            started = True
-            print('Car started... Ready to go!')
-    elif command == "stop":
-        if not started:
-            print('Car is already stopped.')
-        else:
-            started = False
-            print('Car stopped.')
-    elif command == "help":
-        print('''start - to start the car
-        stop - to stop the car
-        quit - to exit''')
-    elif command == "quit":
-        print('Terminated.')
-        break
-    else:
-        print("I don't understand that...")
+# command = ""
+# started = False
+# while True:
+#     command = input('> ').lower()
+#     if command == "start":
+#         if started:
+#             print('Car is already started.')
+#         else:
+#             started = True
+#             print('Car started... Ready to go!')
+#     elif command == "stop":
+#         if not started:
+#             print('Car is already stopped.')
+#         else:
+#             started = False
+#             print('Car stopped.')
+#     elif command == "help":
+#         print('''start - to start the car
+#         stop - to stop the car
+#         quit - to exit''')
+#     elif command == "quit":
+#         print('Terminated.')
+#         break
+#     else:
+#         print("I don't understand that...")
+
+# def multiplication(x, y):
+#     print("Answer is:", x * y)
+
+# def addition(x, y):
+#     print("Answer is:", x + y)
+
+# def subtraction(x, y):
+#     print("Answer is:", x - y)
+
+# def division(x, y):
+#     print("Answer is:", x / y)
+
+# command = ""
+# while True:
+#     command = input('Enter a command: ').lower()
+#     if command in ["add", "subtract", "multiply", "divide", "help"]:
+#         if command == "help":
+#             print('''add - to add two numbers
+# subtract - to subtract two numbers
+# multiply - to multiply two numbers
+# divide - to divide two numbers
+# quit - to exit''')
+#         else:
+#             x = int(input('Enter a number: '))
+#             y = int(input('Enter another number: '))
+#             if command == "add":
+#                 addition(x, y)
+#             elif command == "subtract":
+#                 subtraction(x, y)
+#             elif command == "multiply":
+#                 multiplication(x, y)
+#             elif command == "divide":
+#                 division(x, y)
+#     elif command == "quit":
+#         print('Terminated.')
+#         break
+#     else:
+#         print('Invalid command. Please enter "add", "subtract", "multiply", "divide", "help", or "quit".')
+
+# def say_hi(string):
+#     print(string)
+#     print('Hi!')
+#     print(string)
+# say_hi('Hello, World!')
+
+# password = input('Enter a password: ')
+# password_length = len(password)
+# conditions = []
+# if password_length < 5:
+#     conditions.append('Password must be at least 5 characters long.')
+# if password.islower():
+#     conditions.append('Password must contain at least one uppercase letter.')
+# if password.isalpha():
+#     conditions.append('Password must contain at least one number.')
+# if not any(char in '!@#$%^&*()_+' for char in password):
+#     conditions.append('Password must contain at least one special character (!@#$%^&*()_+).')
+# if conditions:
+#     for condition in conditions:
+#         print(condition)
+# else:
+#     print('Password looks good.')
+
+# sum = lambda x, y: x + y
+# print(sum(5, 10)) 
+  
+# from functools import reduce
+# list_store = [1, 2, 3, 4, 5]
+# filtered = list(filter(lambda x: x % 2 == 0, list_store))
+# print(filtered)
+# reduced = reduce(lambda x, y: x + y, list_store)
+# print(reduced)
+
+# grades = [88, 75, 96, 55, 83]
+# for grade in grades:
+#     if grade >= 83:
+#         print('A')
+#     else:
+#         print('F')
+
+# students = set(['John', 'Mary', 'Steve', 'Anna', 'Lee'])
+# students2 = set(['John', 'Mary', 'Lee'])
+
+# print(students2.difference(students))
+
+# lst = [1, 'two', 3, 'four', 5]
+# def remove_strings(lst):
+#     return [i for i in lst if not isinstance(i, str)]
+# lst = remove_strings(lst)
+# print(lst)
+
+# import numpy as np
+# a = np.array([1, 2, 3, 4])
+# b = np.array([5, 6, 7, 8])
+# print(np.dot(a, b))
+
+# numbers = range(10)
+# new_dict = {}
+# for i in numbers:
+#     if i % 2 == 0:
+#         new_dict[i] = i ** 2
+# {n ** 2 for n in numbers if n % 2 == 0}
+# print(new_dict)
+
+lower_case = ['total', 'world', 'hello', 'goodbye_world']
+upper_case = [word.upper() for word in lower_case]
+print(upper_case)
+        
 
 
