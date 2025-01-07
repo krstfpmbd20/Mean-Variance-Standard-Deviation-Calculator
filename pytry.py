@@ -258,9 +258,9 @@
 # {n ** 2 for n in numbers if n % 2 == 0}
 # print(new_dict)
 
-lower_case = ['total', 'world', 'hello', 'goodbye_world']
-upper_case = [word.upper() for word in lower_case]
-print(upper_case)
+# lower_case = ['total', 'world', 'hello', 'goodbye_world']
+# upper_case = [word.upper() for word in lower_case]
+# print(upper_case)
         
 
 
