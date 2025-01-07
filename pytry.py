@@ -261,6 +261,82 @@
 # lower_case = ['total', 'world', 'hello', 'goodbye_world']
 # upper_case = [word.upper() for word in lower_case]
 # print(upper_case)
-        
 
+# import numpy as np
+# a = np.array([1, 2, 3, 4])
+# b = np.array([5, 6, 7, 8])
+# result = a * b
+# result_str = ', '.join(map(str, result))
+# print(result_str)
+
+# import numpy as np
+# np.array([1, 2, 3, 4])
+# print(type(np.array([1, 2, 3, 4])))
+# np.zeros(10, dtype=int)
+# print(np.zeros(10, dtype=int))
+# np.ones(10, dtype=int)
+# print(np.ones(10, dtype=int))   
+# np.random.randint(1, 10, 10)
+# print(np.random.randint(1, 10, 10))
+# np.random.normal(0, 1, (3, 4))
+# print(np.random.normal(0, 1, (3, 4)))
+
+# np.array = []
+# for i in range(1, 11):
+#     np.array.append(i)
+# print(np.array)
+
+# import numpy as np
+# random = np.random.randint(1, 10, 10)
+# print('Random Set: ', random)
+# sorted_random = np.sort(random)
+# print('Sorted Set: ', sorted_random)
+
+# import numpy as np 
+# random = np.random.randint(1, 10, 9) 
+# print(random)  
+# reshape = random.reshape(3, 3)
+# print(reshape)
+# reshape.sort(axis=1)
+# print(reshape)
+
+# import numpy as np
+# v = np.arange(1, 11, 1)
+# print(v)
+# print(v[v < 3])
+
+# set = []
+# for i in range(1, 11):
+#     set.append(i)
+# print(set)
+
+# word_list = ['hello', 'world', 'goodbye', 'what']
+# remove_first_and_last = [word[1:-1] for word in word_list]
+# print(remove_first_and_last)
+
+# def FizzBuzz(n):
+#     for i in range(1, n + 1):
+#         if i % 3 == 0 and i % 5 == 0:
+#             print('FizzBuzz')
+#         elif i % 3 == 0:
+#             print('Fizz')
+#         elif i % 5 == 0:
+#             print('Buzz')
+#         else:
+#             print(i)
+# input = int(input())
+# FizzBuzz(input)
+
+# avg = []
+# input = list(map(int, input().split()))
+# avg.append(sum(input) / len(input))
+# print(avg)
+
+# def number_squared(n):
+#     return n ** 2
+
+# if __name__ == '__main__':
+#     n = int(input())
+#     for i in range(0, n):
+#         print(number_squared(i))
 
