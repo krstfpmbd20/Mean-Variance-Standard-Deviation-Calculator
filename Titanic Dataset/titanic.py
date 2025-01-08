@@ -28,7 +28,7 @@ plt.ylabel('Count')
 plt.xticks(rotation=0)
 for i in ax.containers:
     ax.bar_label(i)
-plt.savefig('survivors_and_casualties.png')  # Save the plot as a PNG file
+plt.savefig('Titanic Dataset/survivors_and_casualties.png')  # Save the plot as a PNG file
 #plt.show()
 
 # Plot the number of survivors by sex
