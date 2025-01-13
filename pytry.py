@@ -351,74 +351,44 @@
 # df = pd.read_csv('advertising.csv') 
 # df = df.round() #rounds off the values in the dataframe to the nearest whole number.
 # print(df.head())
-# # print(df.tail())
-# # print(df.info())
-# # print(df.describe())    
+# print(df.tail())
+# print(df.info)
+# print(df.describe)    
 # print(df.isnull().values.any()) #returns true or false, false if there are no missing values.
 # print(df.isnull()) #returns a dataframe of boolean values, true if there is a missing value, false if there is no missing value.
 # print(df.isnull().sum()) #returns the number of missing values in each column. 
 
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+# import pandas as pd
+# import seaborn as sns 
 
-df = sns.load_dataset("titanic")
-df.columns = df.columns.str.capitalize()
-df['Age'] = df['Age'].fillna(0).astype(int)
-df['Sex'] = df['Sex'].str.capitalize()
-df['Who'] = df['Who'].str.capitalize()
-df['Alive'] = df['Alive'].str.capitalize()
-df['Survived'] = df['Survived'].map({1: 'Yes', 0: 'No'})
-df['Class'] = df['Class'].map({'Third': '3rd', 'First': '1st', 'Second': '2nd'})
-df['Deck'] = df['Deck'].astype('category')
-df['Deck'] = df['Deck'].cat.add_categories('Unknown').fillna('Unknown')
-df['Alone'] = df['Alone'].map({False: 'No', True: 'Yes'})
-df['Embarked'] = df['Embarked'].fillna('Unknown')
-df['Embark_town'] = df['Embark_town'].fillna('Unknown')
-df = df.drop(columns=['Who'])
-df = df.rename(columns={'Adult_male': 'Adult_status'})
-df['Adult_status'] = df['Age'].apply(lambda x: 'Adult' if x >= 18 else 'Child')
+# df = sns.load_dataset('titanic')
+# print(df[['sex', 'alone', 'survived']].head())
+# print(df.index)
 
-# Plot the number of survivors and casualties
-survival_counts = df['Survived'].value_counts()
-ax = survival_counts.plot(kind='bar', color=['red', 'green'])
-plt.title('Number of Survivors and Casualties')
-plt.xlabel('Survived')
-plt.ylabel('Count')
-plt.xticks(rotation=0)
-for i in ax.containers:
-    ax.bar_label(i)
-plt.savefig('survivors_and_casualties.png')  # Save the plot as a PNG file
-#plt.show()
+# import pandas as pd 
+# import seaborn as sns
+# import matplotlib.pyplot as plt
 
-# Plot the number of survivors by sex
-survival_by_sex = df.groupby(['Sex', 'Survived']).size().unstack()
-ax = survival_by_sex.plot(kind='bar', stacked=False, color=['red', 'green'])
-plt.title('Gender of Survivors and Casualties')
-plt.xlabel('Gender')
-plt.ylabel('Count')
-plt.xticks(rotation=0)
-for i in ax.containers:
-    ax.bar_label(i)
-plt.savefig('survivors_by_sex.png')  # Save the plot as a PNG file
-#plt.show()
+# pd.set_option('display.max_columns', None)
+# pd.set_option('display.width', 1000)
+# df = pd.read_csv('titanic.csv')
+# df.head()
 
-# Plot the number of survivors by adult status
-survival_by_adult_status = df.groupby(['Adult_status', 'Survived']).size().unstack()
-ax = survival_by_adult_status.plot(kind='bar', stacked=False, color=['red', 'green'])
-plt.title('Number of Survivors by Adult Status')
-plt.xlabel('Adult Status')
-plt.ylabel('Count')
-plt.xticks(rotation=0)
-for i in ax.containers:
-    ax.bar_label(i)
-plt.savefig('survivors_by_adult_status.png')  # Save the plot as a PNG file
-#plt.show()
+# # available_datasets = sns.get_dataset_names()
+# # print(available_datasets)
 
-# Print the results
-#print(df.head())
-#print(df['Survived'].value_counts())
+# # Plot histogram for the 'age' column
+# plt.figure(figsize=(10, 6))
+# n, bins, patches = plt.hist(df["age"], bins=20, edgecolor='black', alpha=0.7)
+# plt.title('Age Distribution')
+# plt.xlabel('Age')
+# plt.ylabel('Count')
 
-#df.to_excel('cleaned_titanic_dataset.xlsx', index=False)
+# # Annotate the bars with the count values
+# for i in range(len(patches)):
+#     plt.text(patches[i].get_x() + patches[i].get_width() / 2, patches[i].get_height(), str(int(n[i])), ha='center', va='bottom')
 
+# plt.show()
 
+# plt.boxplot(df['fare'])
+# plt.show()
