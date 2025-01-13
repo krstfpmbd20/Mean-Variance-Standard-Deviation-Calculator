@@ -10,6 +10,11 @@
 # Value Counts: Displays the value counts for categorical columns.
 # Memory Usage: Displays the memory usage of the DataFrame.
 
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 def check_df(dataframe, head=5):
     print("##################### Shape #####################")
     print(dataframe.shape)
@@ -36,7 +41,8 @@ def check_df(dataframe, head=5):
     print(dataframe.describe([0, 0.05, 0.50, 0.95, 0.99, 1]).T)
     
     print("##################### Correlation Matrix #####################")
-    print(dataframe.corr())
+    numeric_cols = dataframe.select_dtypes(include=['number']).columns
+    print(dataframe[numeric_cols].corr())
     
     print("##################### Value Counts #####################")
     for column in dataframe.select_dtypes(include=['object', 'category']).columns:
@@ -47,7 +53,13 @@ def check_df(dataframe, head=5):
     print(dataframe.memory_usage(deep=True))
 
 # Example usage:
-# import pandas as pd
+df = sns.load_dataset("titanic")
+check_df(df)
+
+# Example usage:
+# import pandas as pd or
+# import seaborn as sns
 # df = pd.read_csv('your_data.csv')
+# df = sns.load_dataset("your_data")
 # check_df(df)
 
