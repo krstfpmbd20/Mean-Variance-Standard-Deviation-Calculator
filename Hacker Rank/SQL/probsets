@@ -1,0 +1,33 @@
+-- Type of Triangle
+SELECT
+    CASE 
+        WHEN A + B <= C OR A + C <= B OR B + C <= A THEN 'Not A Triangle'
+        WHEN A = B AND A = C AND B = C THEN 'Equilateral'
+        WHEN A = B OR A = C OR B = C THEN 'Isosceles'
+        ELSE 'Scalene'
+    END
+FROM TRIANGLES;
+
+-- The PADS
+SELECT CONCAT(Name,'(',SUBSTRING(Occupation, 1, 1), ')') 
+FROM OCCUPATIONS 
+ORDER BY Name ASC;
+
+SELECT CONCAT('There are  a total of ', COUNT(Occupation),' ' ,LOWER(Occupation), 's.') 
+FROM OCCUPATIONS 
+GROUP BY Occupation 
+ORDER BY COUNT(Occupation), Occupation ASC;
+
+-- Occupations
+select  max(Doctor),  max(Professor), max(Singer),  max(actor) from (
+select 
+    case when Occupation = 'Actor' then name else null end as actor,
+    case when Occupation = 'Doctor' then name else null end as Doctor,
+    case when Occupation = 'Professor' then name else null end as Professor,
+    case when Occupation = 'Singer' then name else null end as Singer,
+    RANK() over (PARTITION BY Occupation order by name asc) as rnk
+from 
+OCCUPATIONS ) t
+group by rnk
+order by rnk;
+
