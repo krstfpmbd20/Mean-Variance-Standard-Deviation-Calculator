@@ -21,9 +21,6 @@ def check_df(dataframe, head=5):
     print("##################### Unique Values #####################")
     print(dataframe.nunique())
     
-    print("##################### Suspicious or Wrong Data #####################")
-    detect_suspicious_data(dataframe)
-    
     print("##################### Memory Usage #####################")
     print(dataframe.memory_usage(deep=True))
 
