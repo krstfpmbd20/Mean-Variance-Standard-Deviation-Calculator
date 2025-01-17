@@ -8,7 +8,6 @@ df = pd.read_csv("cleaned_lung_cancer_data.csv")
 
 # df['Patient_ID'] = range(1, len(df) + 1)
 
-print(df.isnull().values.any())
 print(df.isnull().sum())
 
 # Save the cleaned data
