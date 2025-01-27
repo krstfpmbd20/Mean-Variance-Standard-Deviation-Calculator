@@ -2,27 +2,27 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def check_df(dataframe, head=5):
+def check_df(df, head=5):
     print("##################### Shape #####################")
-    print(dataframe.shape)
+    print(df.shape)
     
     print("##################### Types #####################")
-    print(dataframe.dtypes)
+    print(df.dtypes)
     
     print("##################### Head #####################")
-    print(dataframe.head(head))
+    print(df.head(head))
     
     print("##################### Tail #####################")
-    print(dataframe.tail(head))
+    print(df.tail(head))
     
     print("##################### NA #####################")
-    print(dataframe.isnull().sum())
+    print(df.isnull().sum())
     
     print("##################### Unique Values #####################")
-    print(dataframe.nunique())
+    print(df.nunique())
     
     print("##################### Memory Usage #####################")
-    print(dataframe.memory_usage(deep=True))
+    print(df.memory_usage(deep=True))
 
 # Example usage:
 if __name__ == "__main__":
